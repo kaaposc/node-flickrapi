@@ -6,8 +6,8 @@ module.exports = (function() {
   "use strict";
 
   var fs = require("fs"),
-      Progress = require("progress"),
-      progressBar,
+      // Progress = require("progress"),
+      // progressBar,
       API = {},
       Utils = {};
 
@@ -28,7 +28,7 @@ module.exports = (function() {
         filename = mdir + "/" + method_name + ".json";
 
     // advance the progress bar
-    progressBar.tick();
+    // progressBar.tick();
 
     var handleResult = function(result) {
       var method = result.method,
@@ -117,9 +117,9 @@ module.exports = (function() {
       var methods = result.methods.method.map(function(v) {
         return v._content;
       });
-      if(!progressBar) {
-        progressBar = new Progress('  fetching method signatures [:bar] :percent', { total: methods.length });
-      }
+      // if(!progressBar) {
+        // progressBar = new Progress('  fetching method signatures [:bar] :percent', { total: methods.length });
+      // }
       return parseMethods(flickrOptions, methods, 0, finished);
     };
 
@@ -131,7 +131,7 @@ module.exports = (function() {
     }
 
     // get all functions
-    console.log("Fetching the Flickr API method information architecture.");
+    // console.log("Fetching the Flickr API method information architecture.");
     Utils.queryFlickr({
       method: "flickr.reflection.getMethods"
     },
